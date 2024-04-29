@@ -1,11 +1,9 @@
-
 import './App.css'
-
+import EditCodeSchool from './EditCodeSchool'
 function App() {
-
   return (
     <>
-      <h1>React App</h1>
+      <EditCodeSchool />
     </>
   )
 }
