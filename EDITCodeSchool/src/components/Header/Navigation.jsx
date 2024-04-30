@@ -1,20 +1,13 @@
+import { Link } from "react-router-dom";
 import classes from "./index.module.css";
 function Navigation(props) {
   return (
     <div className={classes.headerWrapper__navigation}>
       <ul>
-        <li>
-          <a href="#">POČETNA</a>
-        </li>
-        <li>
-          <a href="#">RADIONICE</a>
-        </li>
-        <li>
-          <a href="#">PREDAVČI</a>
-        </li>
-        <li>
+          <Link to="/">POČETNA</Link>
+          <Link to="/courses">RADIONICE</Link>
+          <Link to="/mentors">PREDAVAČI</Link>
           <a href="#">ADMIN</a>
-        </li>
         <div className={classes.underline}></div>
       </ul>
       <button

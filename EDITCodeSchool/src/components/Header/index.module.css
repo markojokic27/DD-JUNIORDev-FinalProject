@@ -47,7 +47,7 @@
 .headerWrapper__navigation ul{
   position: relative;
 }
-.headerWrapper__navigation li  {
+.headerWrapper__navigation a {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 600;
@@ -59,20 +59,19 @@
   height: 60px;
   position: relative;
   cursor: pointer;
-  transition: color 0.3s ease-in-out;
-}
-.headerWrapper__navigation a {
-  align-self: center;
   text-align: center;
   text-decoration: none;
   color: #ffffff;
+  transition: color 0.3s ease-in-out;
 }
-.headerWrapper__navigation li:hover a{
+
+.headerWrapper__navigation a:hover {
   color: #ddaf53;
 }
+
 .underline {
   position: absolute;
-  height:6px;
+  height: 6px;
   background-color: #252525;
   z-index: 12;
   bottom: 0;
@@ -81,23 +80,25 @@
   transition: 0.3s;
   border-radius: 4px;
 }
-.headerWrapper__navigation li:hover ~ .underline {
+
+.headerWrapper__navigation a:hover ~ .underline {
   background-color: #ddaf53;
 }
-.headerWrapper__navigation li:nth-child(1):hover ~ .underline {
+
+.headerWrapper__navigation a:nth-child(1):hover ~ .underline {
   transform: translateX(100%);
 }
-.headerWrapper__navigation li:nth-child(2):hover ~ .underline {
+
+.headerWrapper__navigation a:nth-child(2):hover ~ .underline {
   transform: translateX(200%);
 }
-.headerWrapper__navigation li:nth-child(3):hover ~ .underline {
+
+.headerWrapper__navigation a:nth-child(3):hover ~ .underline {
   transform: translateX(300%);
 }
-.headerWrapper__navigation li:nth-child(4):hover ~ .underline {
+
+.headerWrapper__navigation a:nth-child(4):hover ~ .underline {
   transform: translateX(400%);
-}
-.headerWrapper__navigation li:nth-child(5):hover ~ .underline {
-  transform: translateX(500%);
 }
 .headerWrapper__hamburger {
   display: none;
