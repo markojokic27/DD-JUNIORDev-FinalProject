@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import classes from "./index.module.css";
 function MobileMenu(props) {
   return (
@@ -7,21 +8,10 @@ function MobileMenu(props) {
       }`}
     >
       <ul>
-        <li>
-          <a href="#">Početna</a>
-        </li>
-        <li>
-          <a href="#">PRODUCT</a>
-        </li>
-        <li>
-          <a href="#">PROMO</a>
-        </li>
-        <li>
-          <a href="#">ABOUT</a>
-        </li>
-        <li>
-          <a href="#">CONTACT</a>
-        </li>
+        <Link to="/">POČETNA</Link>
+        <Link to="/courses">RADIONICE</Link>
+        <Link to="/mentors">PREDAVAČI</Link>
+        <a href="#">ADMIN</a>
       </ul>
     </div>
   );
