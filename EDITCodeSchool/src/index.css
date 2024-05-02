@@ -4,13 +4,14 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
   background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --navigation_background: #252525;
 
   --body_background: #faf3e5;
   --body_color: #000000;
@@ -22,7 +23,7 @@
 
 * {
   box-sizing: border-box;
-  transition: color 1.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
 }
 body {
@@ -31,7 +32,7 @@ body {
   display: flex;
   justify-content: center;
   height: 100%;
-  min-height: 100vh; 
+  min-height: 100vh;
 }
 
 #root {
@@ -47,18 +48,49 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  height: 42px;
+  border-radius: 42px;
+  padding: 0 20px;
   cursor: pointer;
-  transition: border-color 0.25s;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  border: unset;
+  z-index: 1;
+  position: relative;
+  background: #ddaf53;
+  transition: all 0.3s;
+  overflow: hidden;
+  border: 4px solid #ddaf53;
 }
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: var(--navigation_background);
+  z-index: -1;
+  transition: all 300ms;
+}
+
 button:hover {
-  border-color: #646cff;
+  color: #e8e8e8;
+}
+
+button:hover::before {
+  width: 100%;
+}
+button:active {
+  transform: scale(0.95);
 }
 
 h1,

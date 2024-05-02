@@ -6,7 +6,7 @@ function Hamburger(props) {
   };
   return (
     <div
-      className={`${classes.headerWrapper__hamburger} ${
+      className={`${classes.header__hamburger} ${
         props.hamburgerActive ? classes.active : ""
       }`}
       onClick={toggleHamburger}
