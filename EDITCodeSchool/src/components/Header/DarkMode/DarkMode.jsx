@@ -8,7 +8,7 @@ function DarkMode({ id, theme, toggleTheme }) {
         type="checkbox"
         id={`darkmode-toggle-${id}`}
         onChange={toggleTheme}
-        checked={theme === "dark"}
+        defaultChecked={theme === "dark"}
         className={classes.darkMode__input}
       />
       <label

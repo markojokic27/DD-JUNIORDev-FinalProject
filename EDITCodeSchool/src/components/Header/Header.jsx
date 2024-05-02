@@ -1,5 +1,5 @@
 import classes from "./index.module.css";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 
 import Navigation from "./Navigation/Navigation";
 import Logo from "./Logo";
@@ -12,19 +12,30 @@ function Header(props) {
   const handleButtonClick = () => {
     props.onButtonClick();
   };
+  
+  const setDarkMode = () => {
+     document.querySelector('body').setAttribute('data-theme', 'dark');
+     localStorage.setItem('theme', 'dark');
 
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-
-  useEffect(() => {
-    document.querySelector("html").setAttribute("data-theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    document.querySelector("html").setAttribute("data-theme", newTheme); 
+  }
+  const setLightMode = () => {
+      document.querySelector('body').setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+  }
+  const theme = localStorage.getItem('theme')
+  if(theme === 'dark'){
+      setDarkMode()
+  }
+  
+  const toggleTheme = (e) => {
+    if (e.target.checked) {
+      setDarkMode()
+    } else {
+      setLightMode()
+    }
+    
   };
+  
 
   return (
     <div>
