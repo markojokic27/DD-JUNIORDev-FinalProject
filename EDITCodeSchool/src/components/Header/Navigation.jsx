@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import classes from "./index.module.css";
+import DarkMode from "./DarkMode";
 function Navigation(props) {
   return (
     <div className={classes.headerWrapper__navigation}>
@@ -10,6 +11,10 @@ function Navigation(props) {
           <a href="#">ADMIN</a>
         <div className={classes.underline}></div>
       </ul>
+      
+      <DarkMode />
+    
+
       <button
         className={`${classes.button} ${classes.buttonStyle}`}
         onClick={props.handleButtonClick}

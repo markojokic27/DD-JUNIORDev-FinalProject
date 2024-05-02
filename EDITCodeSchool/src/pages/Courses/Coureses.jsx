@@ -2,7 +2,7 @@ import classes from "./index.module.css";
 import images from "../../assets/images";
 function Courses() {
   return (
-    <div className={classes.home}>
+    <div className={classes.courses}>
       <img
         src={images.logo}
         alt="logo"
