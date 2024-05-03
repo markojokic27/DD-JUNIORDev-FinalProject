@@ -2,23 +2,22 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
-  background-color: #ffffff;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   --navigation_background: #252525;
-
+  --gold:#ddaf53;
   --body_background: #faf3e5;
   --body_color: #000000;
+  --card_background: #ffffff;
 }
 [data-theme="dark"] {
   --body_background: #121212;
   --body_color: #ffffff;
+  --card_background: #000000;
 }
 
 * {
@@ -102,4 +101,5 @@ h6,
 a,
 p {
   margin: 0;
+  color: var(--body_color);
 }

@@ -2,9 +2,27 @@
   width: 100%;
   height: 100%;
   background-color: var(--body_background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 .courses h1{
   color: var(--body_color);
-  font-size: 3.2em;
-  line-height: 1.1;
+  margin: 32px 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  
+}
+@media screen and (max-width: 850px) {
+  .courses h1{
+    font-size: 2.5em;
+  
+  }
+}
+.courses .courses__wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: clamp(300px, 100%, 1440px);
 }

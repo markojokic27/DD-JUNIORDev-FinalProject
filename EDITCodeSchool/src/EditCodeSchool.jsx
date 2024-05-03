@@ -5,7 +5,22 @@ import Home from './pages/Home/Home'
 import Courses from './pages/Courses/Coureses'
 import Mentors from './pages/Mentors/Mentors'
 import NotFound from './pages/NotFound/NotFound'
+import { useContext, useEffect } from 'react'
+import { FormContext } from './context/formContext'
+import axios from 'axios'
 function EditCodeSchool() {
+  const {setMentors,setOrganisations } = useContext(FormContext);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/mentors/")
+      .then((res) => setMentors(res.data))
+      .catch((err) => alert(err));
+    axios
+      .get("http://localhost:3001/organisations/")
+      .then((res) => setOrganisations(res.data))
+      .catch((err) => alert(err));
+    
+  }, [setMentors,setOrganisations]);
   return (
     <>
       <Header />
@@ -13,8 +28,7 @@ function EditCodeSchool() {
         <Route path="/" element={<Home/>} />
         <Route path="/courses" element={<Courses/>} />
         <Route path="/mentors" element={<Mentors/>} />
-        <Route path="*" element={<NotFound/>} />
-        
+        <Route path="*" element={<NotFound/>} />       
       </Routes>
     </>
   )
