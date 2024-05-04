@@ -4,10 +4,16 @@ import DarkMode from "../DarkMode/DarkMode";
 import { useContext } from "react";
 import { FormContext } from "../../../context/formContext";
 function Navigation(props) {
-  const {setAuthenticationVisible, authenticationVisible}=useContext(FormContext)
+  const { setAuthenticationVisible, authenticationVisible, currentUser,setCurrentUser } =
+    useContext(FormContext);
   const handleButtonClick = () => {
     setAuthenticationVisible(!authenticationVisible);
   };
+  const logOut = () => {
+    setCurrentUser({name:"",email:"",password:""})
+  }
+  console.log(currentUser)
+
   return (
     <div className={classes.header__navigation}>
       <ul>
@@ -17,15 +23,14 @@ function Navigation(props) {
         <a href="#">ADMIN</a>
         <div className={classes.header__underline}></div>
       </ul>
-
       <DarkMode id="1" theme={props.theme} toggleTheme={props.toggleTheme} />
-
-      <button
-        className={classes.header__button}
-        onClick={handleButtonClick}
-      >
-        PRIJAVA
-      </button>
+      {currentUser.name === "" ? (
+        <button className={classes.header__button} onClick={handleButtonClick}>
+          PRIJAVA
+        </button>
+      ) : (
+        <button className={classes.header__redbutton} onClick={logOut}>ODJAVA</button>
+      )}
     </div>
   );
 }

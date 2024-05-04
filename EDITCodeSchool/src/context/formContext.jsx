@@ -11,6 +11,11 @@ export const FormProvider = ({ children }) => {
   const [organisations, setOrganisations] = useState([]);
   const [authenticationVisible, setAuthenticationVisible] = useState(false);
   const [users, setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
   const contextValue = {
     courses,
     setCourses,
@@ -28,6 +33,8 @@ export const FormProvider = ({ children }) => {
     setAuthenticationVisible,
     users,
     setUsers,
+    currentUser,
+    setCurrentUser,
   };
 
   return (

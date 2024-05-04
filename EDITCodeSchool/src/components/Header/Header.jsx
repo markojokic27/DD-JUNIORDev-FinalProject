@@ -29,10 +29,7 @@ function Header() {
     } else {
       setLightMode()
     }
-    
   };
-  
-
   return (
     <div>
       <div className={classes.header}>

@@ -5,23 +5,30 @@ import { FormContext } from "../../context/formContext";
 function SignIn() {
   const [emailIn, setEmailIn] = useState("");
   const [passwordIn, setPasswordIn] = useState("");
-  const {users}=useContext(FormContext)
+  const [message, setMessage] = useState("");
+  const { users, setCurrentUser, setAuthenticationVisible } =
+    useContext(FormContext);
 
   const signIn = (e) => {
     e.preventDefault();
     console.log(emailIn, passwordIn);
     let user = users.find((user) => user.email === emailIn);
     if (user) {
-      user = users.find((user) => user.email === emailIn && user.password === passwordIn);
+      user = users.find(
+        (user) => user.email === emailIn && user.password === passwordIn
+      );
       if (user) {
-        console.log("Uspješno ste se prijavili");
+        setMessage("Uspešno ste se prijavili");
+        setCurrentUser(user);
+        setTimeout(() => {
+          setAuthenticationVisible(false);
+        }, 1000);
       } else {
-        console.log("Netočna lozinka");
+        setMessage("Netočna lozinka");
       }
     } else {
-      console.log("Ne postoji korisnik s tim podacima");
+      setMessage("Ne postoji korisnik s tim podacima");
     }
-    
   };
 
   return (
@@ -31,6 +38,7 @@ function SignIn() {
           <h1>Prijavi se</h1>
         </div>
         <input
+          id="emailIn"
           type="email"
           value={emailIn}
           onChange={(e) => setEmailIn(e.target.value)}
@@ -39,6 +47,7 @@ function SignIn() {
           className={classes.signInInput}
         />
         <input
+          id="passwordIn"
           type="password"
           value={passwordIn}
           onChange={(e) => setPasswordIn(e.target.value)}
@@ -49,6 +58,7 @@ function SignIn() {
         <button type="submit" className={classes.buttonA}>
           Prijavi se
         </button>
+        <p>{message}</p>
       </form>
     </div>
   );

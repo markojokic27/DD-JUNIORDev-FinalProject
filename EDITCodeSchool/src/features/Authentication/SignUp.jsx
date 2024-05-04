@@ -6,13 +6,21 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import { FormContext } from "../../context/formContext";
 function SignUp(props) {
-  const {setUsers}=useContext(FormContext)
-  const[unsuccesful, setUnsuccesful] = useState(false)
-  
+  const {setUsers, users, setCurrentUser, setAuthenticationVisible}=useContext(FormContext)
+  const[message, setMessage] = useState("")
   const signUp = (e) => {
     e.preventDefault();
-    if (props.isValid.name && props.isValid.email && props.isValid.password) {
-      console.log("Uspješno ste se registrirali")
+    if (props.isValid.name && props.isValid.email && props.isValid.password){
+      const user = users.find((user) => user.email === props.data.email);
+      if (user) {
+        setMessage("Već postoji korisnik s tim emailom")
+        setTimeout(() => {
+          setMessage("")
+        }, 3000)
+        return
+      }
+
+      setMessage("Uspješno ste se registrirali")
       axios
         .post("http://localhost:3001/users", props.data, {
         headers: {
@@ -26,12 +34,18 @@ function SignUp(props) {
         .catch((error) => {
         console.log(error);
         });
+        setCurrentUser(props.data);
+        setTimeout(() => {
+          setAuthenticationVisible(false);
+          setMessage("")
+        }, 1000);
+      
       props.setData({ name: "", email: "", password: ""});
     }
     else {
-      setUnsuccesful(true)
+      setMessage("Registracija nije uspjela")
       setTimeout(() => {
-        setUnsuccesful(false)
+        setMessage("")
       }, 3000)
     }
   }
@@ -60,7 +74,7 @@ function SignUp(props) {
           setIsValid={props.setIsValid}
         />
         <button className={classes.buttonA} onClick={signUp}>Registriraj se</button>
-        {unsuccesful && <span className={classes.warning}>Registracija nije uspjela</span>}
+        <p>{message}</p>
       </form>
     </div>
   );
