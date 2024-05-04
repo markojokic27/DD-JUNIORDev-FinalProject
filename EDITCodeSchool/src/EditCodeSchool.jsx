@@ -9,25 +9,24 @@ import { useContext, useEffect } from 'react'
 import { FormContext } from './context/formContext'
 import axios from 'axios'
 import Footer from './components/Footer/Footer'
+import Authentication from './features/Authentication/Authentication'
 function EditCodeSchool() {
-  const {setMentors,setOrganisations,setCourses } = useContext(FormContext);
+  const {setMentors,setOrganisations,setCourses, setUsers } = useContext(FormContext);
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/mentors/")
-      .then((res) => setMentors(res.data))
-      .catch((err) => alert(err));
-    axios
-      .get("http://localhost:3001/organisations/")
-      .then((res) => setOrganisations(res.data))
-      .catch((err) => alert(err));
-      axios
-      .get("http://localhost:3001/courses/")
-      .then((res) => {
-        setCourses(res.data);
+    Promise.all([
+      axios.get("http://localhost:3001/mentors/"),
+      axios.get("http://localhost:3001/organisations/"),
+      axios.get("http://localhost:3001/courses/"),
+      axios.get("http://localhost:3001/users/"),
+    ])
+      .then(([resMentors, resOrganisations,resCourses, resUsers]) => {
+        setMentors(resMentors.data);
+        setOrganisations(resOrganisations.data);
+        setCourses(resCourses.data);
+        setUsers(resUsers.data);
       })
-      .catch((err) => alert(err));
-    
-  }, [setMentors,setOrganisations,setCourses]);
+      .catch((err) => console.log(err.message));
+  }, [setMentors, setOrganisations, setCourses, setUsers]);
   return (
     <>
       <Header />
@@ -38,6 +37,8 @@ function EditCodeSchool() {
         <Route path="*" element={<NotFound/>} />       
       </Routes>
       <Footer />
+
+      <Authentication isAuthenticationVisible={true} />
     </>
   )
 }

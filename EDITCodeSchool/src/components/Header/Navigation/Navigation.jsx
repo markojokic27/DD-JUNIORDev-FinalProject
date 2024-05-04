@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import classes from "./index.module.css";
 import DarkMode from "../DarkMode/DarkMode";
+import { useContext } from "react";
+import { FormContext } from "../../../context/formContext";
 function Navigation(props) {
+  const {setAuthenticationVisible, authenticationVisible}=useContext(FormContext)
+  const handleButtonClick = () => {
+    setAuthenticationVisible(!authenticationVisible);
+  };
   return (
     <div className={classes.header__navigation}>
       <ul>
@@ -16,7 +22,7 @@ function Navigation(props) {
 
       <button
         className={classes.header__button}
-        onClick={props.handleButtonClick}
+        onClick={handleButtonClick}
       >
         PRIJAVA
       </button>

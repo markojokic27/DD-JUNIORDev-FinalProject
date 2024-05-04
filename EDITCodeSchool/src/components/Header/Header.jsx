@@ -6,13 +6,9 @@ import Logo from "./Logo";
 import Hamburger from "./MobileMenu/Hamburger";
 import MobileMenu from "./MobileMenu/MobileMenu";
 
-function Header(props) {
+function Header() {
   const [hamburgerActive, setHamburgerActive] = useState(false);
 
-  const handleButtonClick = () => {
-    props.onButtonClick();
-  };
-  
   const setDarkMode = () => {
      document.querySelector('body').setAttribute('data-theme', 'dark');
      localStorage.setItem('theme', 'dark');
@@ -43,7 +39,6 @@ function Header(props) {
         <div className={classes.header__wrapper}>
           <Logo />
           <Navigation
-            handleButtonClick={handleButtonClick}
             theme={theme}
             toggleTheme={toggleTheme}
           />

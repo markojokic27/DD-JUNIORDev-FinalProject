@@ -4,7 +4,6 @@ import Checkbox from "./Checkbox";
 function Filters(props) {
   const levels = ["Junior", "Mid", "Senior"];
   const themes = ["React", "Express", "Cybersecurity", "PHP"];
-  console.log(props.selectedThemes);
   return (
     <div className={classes.filters}>
       <h2>Filteri</h2>
