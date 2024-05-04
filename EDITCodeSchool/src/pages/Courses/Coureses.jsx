@@ -3,6 +3,7 @@ import classes from "./index.module.css";
 import { FormContext } from "../../context/formContext";
 import Course from "./Course/Course";
 import Filters from "./Filters/Filters";
+import Loader from "./Filters/Loader";
 
 function Courses() {
   const { setFilteredCourses, filteredCourses, courses } =
@@ -35,23 +36,27 @@ function Courses() {
     setIsLoading(true);
     setTimeout(() => {
       setFilteredCourses(filteredCoursesResult);
-      setIsLoading(false); 
-    }, 800);
+      setIsLoading(false);
+    }, 1200);
   }, [selectedLevels, selectedThemes, courses, setFilteredCourses]);
 
   return (
     <div className={classes.courses}>
       <h1>Radionice</h1>
       <div className={classes.courses__wrapper}>
-        <Filters
-          selectedLevels={selectedLevels}
-          setSelectedLevels={setSelectedLevels}
-          selectedThemes={selectedThemes}
-          setSelectedThemes={setSelectedThemes}
-        />
+        <div className={classes.courses__leftContainer}>
+          <Filters
+            selectedLevels={selectedLevels}
+            setSelectedLevels={setSelectedLevels}
+            selectedThemes={selectedThemes}
+            setSelectedThemes={setSelectedThemes}
+          />
+        </div>
         <div className={classes.courses__display}>
           {isLoading ? (
-            <div className={classes.loading}>Loading...</div>
+            <div className={classes.courses__loading}>
+              <Loader />
+            </div>
           ) : filteredCourses.length > 0 ? (
             filteredCourses.map((c, index) => <Course key={index} course={c} />)
           ) : (

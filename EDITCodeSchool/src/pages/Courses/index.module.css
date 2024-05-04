@@ -5,8 +5,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-
 }
 .courses__wrapper{
   width: 100%;
@@ -40,4 +38,37 @@
 }
 .courses__notFound{
   margin-top: 50px;
+}
+.courses__loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  height: 100%;
+  width: 100%;
+}
+.courses__leftContainer{
+  width: clamp(300px, 100%, 20%);
+  margin-right: 32px;
+}
+
+@media screen and (max-width: 1300px) {
+  .courses__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  .courses__leftContainer{
+    width: 100%;
+    margin-right: 0;
+  }
+  .courses__display{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .courses__wrapper{
+    padding: 0 16px;
+  }
 }

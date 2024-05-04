@@ -3,13 +3,12 @@ import classes from "./index.module.css";
 import { FormContext } from "../../../context/formContext";
 
 function Course({ course }) {
-  const { mentors,organisations } = useContext(FormContext);
+  const { mentors, organisations } = useContext(FormContext);
 
   const mentorNames = course.mentors.map((mentorId) => {
     const mentor = mentors.find((mentor) => mentor.id === mentorId);
     return mentor ? mentor.name : "N/A";
   });
-  
 
   const organizationNames = course.organisations.map((orgId) => {
     const organization = organisations.find((org) => org.id === orgId);
@@ -26,6 +25,10 @@ function Course({ course }) {
       </div>
       <div className={classes.course__wrapper2}>
         <h2>{course.name}</h2>
+        <div className={classes.course__mobileWrapper}>
+        <img src={imagePath} alt={course.name} />
+        <button>PRIJAVI SE</button>
+        </div>
         <p>{course.description}</p>
         <div className={classes.course__list}>
           <div className={classes.course__listItem}>

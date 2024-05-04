@@ -1,11 +1,11 @@
 .filters{
   display: flex;
-  width: clamp(300px, 100%, 20%);
+  width: 100%;
   flex-direction: column;
   align-items: center;
   background-color: transparent;
   border: solid 4px var(--gold);
-  margin-right: 32px;
+  margin-bottom: 30px;
   border-radius: 30px;
   
 }
@@ -25,4 +25,29 @@
   font-family: "Roboto", sans-serif;
   font-weight: 800;
   margin: 20px 0;
+}
+.filters__container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 1300px) {
+  .filters{
+    display: flex;
+  }
+  .filters__container{
+    width: 100%;
+    display: flex;
+    flex-direction: unset;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+
+  .filters__wrapper{
+    width: 30%;
+    justify-content: center;
+    align-items: flex-start;
+  }
 }

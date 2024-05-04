@@ -8,29 +8,31 @@ function Filters(props) {
   return (
     <div className={classes.filters}>
       <h2>Filteri</h2>
-      <div className={classes.filters__wrapper}>
-        <h3>Tema</h3>
-        <div className={classes.filters__underline}></div>
-        {themes.map((theme, index) => (
-          <Checkbox
-            key={index}
-            label={theme}
-            setSelected={props.setSelectedThemes}
-            selected={props.selectedThemes}
-          />
-        ))}
-      </div>
-      <div className={classes.filters__wrapper}>
-        <h3>Težina</h3>
-        <div className={classes.filters__underline}></div>
-        {levels.map((level, index) => (
-          <Checkbox
-            key={index}
-            label={level}
-            setSelected={props.setSelectedLevels}
-            selected={props.selectedLevels}
-          />
-        ))}
+      <div className={classes.filters__container}>
+        <div className={classes.filters__wrapper}>
+          <h3>Tema</h3>
+          <div className={classes.filters__underline}></div>
+          {themes.map((theme, index) => (
+            <Checkbox
+              key={index}
+              label={theme}
+              setSelected={props.setSelectedThemes}
+              selected={props.selectedThemes}
+            />
+          ))}
+        </div>
+        <div className={classes.filters__wrapper}>
+          <h3>Težina</h3>
+          <div className={classes.filters__underline}></div>
+          {levels.map((level, index) => (
+            <Checkbox
+              key={index}
+              label={level}
+              setSelected={props.setSelectedLevels}
+              selected={props.selectedLevels}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
