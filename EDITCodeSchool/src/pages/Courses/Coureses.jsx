@@ -1,28 +1,66 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import classes from "./index.module.css";
 import { FormContext } from "../../context/formContext";
-import axios from "axios";
 import Course from "./Course/Course";
+import Filters from "./Filters/Filters";
+
 function Courses() {
-  const { setCourses, setFilteredCourses, courses } = useContext(FormContext);
+  const { setFilteredCourses, filteredCourses, courses } =
+    useContext(FormContext);
+  const [selectedLevels, setSelectedLevels] = useState([]);
+  const [selectedThemes, setSelectedThemes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/courses/")
-      .then((res) => {
-        setCourses(res.data);
-        setFilteredCourses(res.data);
-      })
-      .catch((err) => alert(err));
-  }, [setCourses, setFilteredCourses]);
+    if (courses.length > 0) {
+      setFilteredCourses(courses);
+    }
+  }, [courses, setFilteredCourses]);
+
+  useEffect(() => {
+    let filteredCoursesResult = courses;
+
+    if (selectedLevels.length > 0) {
+      filteredCoursesResult = filteredCoursesResult.filter((course) =>
+        selectedLevels.includes(course.level)
+      );
+    }
+
+    if (selectedThemes.length > 0) {
+      filteredCoursesResult = filteredCoursesResult.filter((course) =>
+        selectedThemes.includes(course.theme)
+      );
+    }
+
+    setIsLoading(true);
+    setTimeout(() => {
+      setFilteredCourses(filteredCoursesResult);
+      setIsLoading(false); 
+    }, 800);
+  }, [selectedLevels, selectedThemes, courses, setFilteredCourses]);
+
   return (
     <div className={classes.courses}>
       <h1>Radionice</h1>
       <div className={classes.courses__wrapper}>
-      {courses.map((c, index) => (
-            <Course key={index} course={c}/>
-          ))}
+        <Filters
+          selectedLevels={selectedLevels}
+          setSelectedLevels={setSelectedLevels}
+          selectedThemes={selectedThemes}
+          setSelectedThemes={setSelectedThemes}
+        />
+        <div className={classes.courses__display}>
+          {isLoading ? (
+            <div className={classes.loading}>Loading...</div>
+          ) : filteredCourses.length > 0 ? (
+            filteredCourses.map((c, index) => <Course key={index} course={c} />)
+          ) : (
+            <div className={classes.courses__notFound}>
+              <h2>Trenutno takve radionice nisu organizirane</h2>
+            </div>
+          )}
+        </div>
       </div>
-      
     </div>
   );
 }

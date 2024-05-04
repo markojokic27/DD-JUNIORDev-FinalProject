@@ -4,7 +4,7 @@ export const FormContext = createContext();
 
 export const FormProvider = ({ children }) => {
   const [courses, setCourses] = useState([]);
-  const [filteredCourses, setFilteredCourses] = useState([courses]);
+  const [filteredCourses, setFilteredCourses] = useState([]);
   const [themes, setThemes] = useState([]);
   const [levels, setLevels] = useState([]);
   const [mentors, setMentors] = useState([]);

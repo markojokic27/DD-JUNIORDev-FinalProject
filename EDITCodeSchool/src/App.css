@@ -2,4 +2,5 @@
   margin: 0 auto;
   text-align: center;
   padding-top: 70px;
+  min-height: 100vh;
 }

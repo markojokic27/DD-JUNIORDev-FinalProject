@@ -6,6 +6,19 @@
   flex-direction: column;
   align-items: center;
 
+
+}
+.courses__wrapper{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1440px;
+}
+@media screen and (max-width: 1520px) {
+  .courses__wrapper{
+    padding	: 0 32px;
+  }
 }
 .courses h1{
   color: var(--body_color);
@@ -17,12 +30,14 @@
 @media screen and (max-width: 850px) {
   .courses h1{
     font-size: 2.5em;
-  
   }
 }
-.courses .courses__wrapper{
+.courses__display{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: clamp(300px, 100%, 1440px);
+  width: clamp(300px, 100%, 80%);
+}
+.courses__notFound{
+  margin-top: 50px;
 }

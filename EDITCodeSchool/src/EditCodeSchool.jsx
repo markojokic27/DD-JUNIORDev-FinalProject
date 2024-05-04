@@ -8,8 +8,9 @@ import NotFound from './pages/NotFound/NotFound'
 import { useContext, useEffect } from 'react'
 import { FormContext } from './context/formContext'
 import axios from 'axios'
+import Footer from './components/Footer/Footer'
 function EditCodeSchool() {
-  const {setMentors,setOrganisations } = useContext(FormContext);
+  const {setMentors,setOrganisations,setCourses } = useContext(FormContext);
   useEffect(() => {
     axios
       .get("http://localhost:3001/mentors/")
@@ -19,8 +20,14 @@ function EditCodeSchool() {
       .get("http://localhost:3001/organisations/")
       .then((res) => setOrganisations(res.data))
       .catch((err) => alert(err));
+      axios
+      .get("http://localhost:3001/courses/")
+      .then((res) => {
+        setCourses(res.data);
+      })
+      .catch((err) => alert(err));
     
-  }, [setMentors,setOrganisations]);
+  }, [setMentors,setOrganisations,setCourses]);
   return (
     <>
       <Header />
@@ -30,6 +37,7 @@ function EditCodeSchool() {
         <Route path="/mentors" element={<Mentors/>} />
         <Route path="*" element={<NotFound/>} />       
       </Routes>
+      <Footer />
     </>
   )
 }

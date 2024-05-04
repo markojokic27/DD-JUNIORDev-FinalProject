@@ -1,12 +1,11 @@
 .course{
-  width: clamp(300px, 100%, 70%);
+  width: 100%;
   display: flex;
-  margin-bottom: 32px;
   padding: 20px;
   border-radius: 30px;
   background-color: var(--gold);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 10px;
+  margin-bottom: 32px;
   border: unset;
 }
 .course__wrapper1{

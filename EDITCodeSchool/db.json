@@ -11,7 +11,20 @@
       "theme": "javascript",
       "participants": [],
       "organisations": ["1"]
+		},    
+		{
+			"id": "4",
+			"name": "CyberSec Akademija",
+			"date": "26.10.2024",
+			"mentors": ["2"],
+      "description": "CyberSec Akademija je intenzivna osmotjedna edukacija koja obuhvaća više sigurnosnih disciplina, od prikupljanja podataka preko različitih napada do zaštite aplikacije od spomenutih napada. ",
+      "applications": 0,
+      "level": "Mid",
+      "theme": "Cybersecurity",
+      "participants": [],
+      "organisations": ["3","1"]
 		},
+
     {
 			"id": "2",
 			"name": "EDIT JUNIOR Dev React",
@@ -20,7 +33,7 @@
       "description": "JUNIOR Dev stručna edukacija primijenjenog programiranja - i ove godine zbog velikog interesa održati će se React tečaj od uvoda do postavljanja projekata na GitHUB. Edukatori su IT stručnjaci i predavači Digitalne Dalmacije - iskusni voditelji tečajeva programiranja u EDIT CodeSchool, te zaposlenici lokalnih IT firmi. ",
       "applications": 0,
       "level": "Junior",
-      "theme": "javascript",
+      "theme": "React",
       "participants": [],
       "organisations": ["1","2"]
 		},
@@ -32,22 +45,11 @@
       "description": "Digitalna Dalmacija donosi JUNIOR Dev Express.js tečaj kao nastavak JavaScript vertikale, a namijenjen je za jednu grupu najboljih s JUNIOR Dev React tečaja. Polaznici će naučiti kako spremati i dohvaćati podatke iz MongoDB baze podataka. Proći će i koncepte poput autentikacije putem JWT i cookiea. ",
       "applications": 0,
       "level": "Junior",
-      "theme": "javascript",
+      "theme": "Express",
       "participants": [],
       "organisations": ["1"]
-		},
-    {
-			"id": "4",
-			"name": "CyberSec Akademija",
-			"date": "26.10.2024",
-			"mentors": ["2"],
-      "description": "CyberSec Akademija je intenzivna osmotjedna edukacija koja obuhvaća više sigurnosnih disciplina, od prikupljanja podataka preko različitih napada do zaštite aplikacije od spomenutih napada. ",
-      "applications": 0,
-      "level": "Mid",
-      "theme": "javascript",
-      "participants": [],
-      "organisations": ["3","1"]
 		}
+
        
 	],
 	"mentors": [
