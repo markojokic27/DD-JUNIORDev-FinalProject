@@ -26,7 +26,7 @@ function Course({ course, isCurrentUserAdmin }) {
     const organization = organisations.find((org) => org.id === orgId);
     return organization ? organization.name : "N/A";
   });
-  const imagePath = `/src/assets/images/${course.name.split(" ").join("")}.jpg`;
+  //const imagePath = `/src/assets/images/${course.name.split(" ").join("")}.jpg`;
 
   const courseSignUp = () => {
     setSelectedCourse(course);
@@ -43,7 +43,7 @@ function Course({ course, isCurrentUserAdmin }) {
   return (
     <div className={classes.course}>
       <div className={classes.course__wrapper1}>
-        <img src={imagePath} alt={course.name} />
+        <img src={course.image} alt={course.name} />
         {isCurrentUserAdmin ? (
           <button onClick={editVisible}>UREDI</button>
         ) : isCurrentUserSignedUp ? (
@@ -55,7 +55,7 @@ function Course({ course, isCurrentUserAdmin }) {
       <div className={classes.course__wrapper2}>
         <h2>{course.name}</h2>
         <div className={classes.course__mobileWrapper}>
-          <img src={imagePath} alt={course.name} />
+          <img src={course.image} alt={course.name} />
           {isCurrentUserAdmin ? (
             <button onClick={editVisible}>UREDI</button>
           ) : isCurrentUserSignedUp ? (

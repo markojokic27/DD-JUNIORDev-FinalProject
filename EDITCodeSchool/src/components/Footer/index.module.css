@@ -7,6 +7,8 @@
   height: 80px;
   margin-top: auto;
   z-index: 70;
+  display: flex;
+  justify-content: center;
 }
 
 

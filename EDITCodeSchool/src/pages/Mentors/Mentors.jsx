@@ -32,8 +32,6 @@ function Mentors() {
 
   useEffect(() => {
     let filteredMentorsResult = mentors;
-    console.log(selectedThemes);
-    console.log(selectedOrganisations);
     if (selectedThemes.length > 0) {
       const filteredCourses = courses.filter((course) =>
         selectedThemes.some((themeId) => course.theme === themeId)

@@ -8,6 +8,7 @@ import DescriptionInput from "./Inputs/DescriptionInput";
 import SelectInput from "./Inputs/SelectInputs";
 import SelectOneInput from "./Inputs/SelectOneInput";
 import axios from "axios";
+//import InputURL from "./Inputs/InputURL";
 //import AddPhoto from "./Inputs/AddPhoto";
 
 function CourseCreate() {
@@ -29,6 +30,7 @@ function CourseCreate() {
     organisations: [],
     level: "",
     theme: "",
+    image: "",
   });
   const [isValid, setIsValid] = useState({
     name: false,
@@ -38,6 +40,7 @@ function CourseCreate() {
     organisations: false,
     level: false,
     theme: false,
+    image: false,
   });
   const [message, setMessage] = useState("");
   const save = () => {
@@ -87,6 +90,14 @@ function CourseCreate() {
               isValid={isValid}
               setIsValid={setIsValid}
             />
+            {/*
+            <InputURL 
+              data={data}
+              setData={setData}
+              isValid={isValid}
+              setIsValid={setIsValid}
+            />
+            */}
             {/*<AddPhoto/>*/}
           </div>
           <div className={classes.courseCreate__rightContainer}>

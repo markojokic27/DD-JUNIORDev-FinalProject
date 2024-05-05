@@ -8,6 +8,7 @@ import DescriptionInput from "./Inputs/DescriptionInput";
 import SelectInput from "./Inputs/SelectInputs";
 import SelectOneInput from "./Inputs/SelectOneInput";
 import axios from "axios";
+//import InputURL from "./Inputs/InputURL";
 function CourseEdit() {
   const {
     courseEditVisible,
@@ -27,6 +28,7 @@ function CourseEdit() {
     organisations: true,
     level: true,
     theme: true,
+    image: true,
   });
   const [message, setMessage] = useState("");
   const save = () => {
@@ -80,6 +82,13 @@ function CourseEdit() {
               setSelectedCourse={setSelectedCourse}
 
             />
+            {/*
+            <InputURL
+              isValid={isValid}
+              setIsValid={setIsValid}
+              selectedCourse={selectedCourse}
+              setSelectedCourse={setSelectedCourse}
+            />*}
             {/*<AddPhoto/>*/}
           </div>
           <div className={classes.courseEdit__rightContainer}>
