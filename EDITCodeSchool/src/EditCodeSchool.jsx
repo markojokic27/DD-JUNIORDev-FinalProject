@@ -10,6 +10,7 @@ import { FormContext } from './context/formContext'
 import axios from 'axios'
 import Footer from './components/Footer/Footer'
 import Authentication from './features/Authentication/Authentication'
+import CourseSignUp from './features/CourseSignUp/CourseSignUp'
 function EditCodeSchool() {
   const {setMentors,setOrganisations,setCourses, setUsers } = useContext(FormContext);
   useEffect(() => {
@@ -38,7 +39,9 @@ function EditCodeSchool() {
       </Routes>
       <Footer />
 
-      <Authentication isAuthenticationVisible={true} />
+      <Authentication/>
+      <CourseSignUp/>
+
     </>
   )
 }

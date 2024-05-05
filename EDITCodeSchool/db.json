@@ -8,10 +8,12 @@
         "1"
       ],
       "description": "Besplatna škola programiranja - EDIT CodeSchool održava se već sedam godina u preko 30 osnovnih i srednjih škola Splitsko-dalmatinske županije. Polaznici uče osnove programiranja, izradu web stranica i aplikacija, a završavaju s izradom vlastitog projekta.",
-      "applications": 0,
+      "applications": 1,
       "level": "Junior",
       "theme": "javascript",
-      "participants": [],
+      "participants": [
+        "jope@gmail.com"
+      ],
       "organisations": [
         "1"
       ]
@@ -24,10 +26,13 @@
         "2"
       ],
       "description": "CyberSec Akademija je intenzivna osmotjedna edukacija koja obuhvaća više sigurnosnih disciplina, od prikupljanja podataka preko različitih napada do zaštite aplikacije od spomenutih napada. ",
-      "applications": 0,
+      "applications": 2,
       "level": "Mid",
       "theme": "Cybersecurity",
-      "participants": [],
+      "participants": [
+        "jope@gmail.com",
+        "mj@gmail.com"
+      ],
       "organisations": [
         "3",
         "1"
@@ -42,10 +47,12 @@
         "3"
       ],
       "description": "JUNIOR Dev stručna edukacija primijenjenog programiranja - i ove godine zbog velikog interesa održati će se React tečaj od uvoda do postavljanja projekata na GitHUB. Edukatori su IT stručnjaci i predavači Digitalne Dalmacije - iskusni voditelji tečajeva programiranja u EDIT CodeSchool, te zaposlenici lokalnih IT firmi. ",
-      "applications": 0,
+      "applications": 1,
       "level": "Junior",
       "theme": "React",
-      "participants": [],
+      "participants": [
+        "jope@gmail.com"
+      ],
       "organisations": [
         "1",
         "2"
@@ -59,10 +66,12 @@
         "2"
       ],
       "description": "Digitalna Dalmacija donosi JUNIOR Dev Express.js tečaj kao nastavak JavaScript vertikale, a namijenjen je za jednu grupu najboljih s JUNIOR Dev React tečaja. Polaznici će naučiti kako spremati i dohvaćati podatke iz MongoDB baze podataka. Proći će i koncepte poput autentikacije putem JWT i cookiea. ",
-      "applications": 0,
+      "applications": 1,
       "level": "Junior",
       "theme": "Express",
-      "participants": [],
+      "participants": [
+        "mj@gmail.com"
+      ],
       "organisations": [
         "1"
       ]
@@ -154,7 +163,18 @@
       "name": "Josip Jokić",
       "email": "jope@gmail.com",
       "password": "josip1223"
+    },
+    {
+      "id": "022e",
+      "name": "ajjaaa",
+      "email": "josip@sSS.a",
+      "password": "12345678"
+    },
+    {
+      "id": "cb3f",
+      "name": "Marko",
+      "email": "mj@gmail.com",
+      "password": "marko12345"
     }
-
   ]
 }

@@ -12,7 +12,7 @@ function Navigation(props) {
   const logOut = () => {
     setCurrentUser({name:"",email:"",password:""})
   }
-  console.log(currentUser)
+
 
   return (
     <div className={classes.header__navigation}>

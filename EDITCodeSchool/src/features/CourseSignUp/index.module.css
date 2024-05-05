@@ -1,0 +1,164 @@
+.CourseSignUp__blur{
+  position: fixed;
+  top: 70px;
+  bottom: 80px;
+  padding-top: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  height: 100%;
+  z-index: 20;
+  backdrop-filter: blur(5px);
+
+}
+.CourseSignUp{
+  position: relative;
+  width: clamp(300px, 80%, 768px);
+  height: 480px;
+  background: var(--body_background);
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+              0 10px 10px rgba(0, 0, 0, 0.22);  
+  z-index: 25;
+  padding: 30px;
+}
+.CourseSignUp input{
+  background: #f5efaf;
+  padding: 12px 15px;
+  width:60%;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+.CourseSignUp p{
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 6px;
+
+}
+.CourseSignUp h2{
+  font-size: 32px;
+  line-height: 32px;
+  margin-bottom: 10px;
+}
+.CourseSignUp textarea{
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 24px;
+  text-align: left;
+  width: 60%;
+  resize: none;
+  font-family: roboto, sans-serif;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 10px;
+  background: #f5efaf;
+
+}
+.CourseSignUp button{
+  margin: 20px 0 ;
+}
+.CourseSignUp button::after {
+  background-color: transparent;
+}
+.CourseSignUp span{
+  font-size: 16px;
+  font-weight: 500;
+
+  line-height: 24px;
+  font-family: roboto, sans-serif;
+
+}
+.CourseSignUp button{
+  margin: 20px 0 ;
+}
+.CourseSignUp button::before {
+  background-color: var(--body_background);
+}
+.CourseSignUp button:hover {
+  color: var(--body_color);
+}
+@media screen and (max-width: 768px) {
+  .CourseSignUp{
+    width: 90%;
+    padding: 20px;
+  }
+  .CourseSignUp input{
+    width: 100%;
+  }
+  .CourseSignUp textarea{
+    width: 100%;
+  }
+  .CourseSignUp h2{
+    font-size: 24px;
+    line-height: 24px;
+  }
+  .CourseSignUp p{
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 6px;
+  }
+  
+}
+.CourseSignUp__alert{
+  padding: 30px;
+  background-color: var(--body_background);
+  border-radius: 30px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+              0 10px 10px rgba(0, 0, 0, 0.22);
+  height: fit-content;
+}
+.CourseSignUp__alert h2{
+  font-size: 32px;
+  line-height: 32px;
+  margin-bottom: 10px;
+}
+.CourseSignUp__alert p{
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 24px;
+}
+.CourseSignUp__alert button{
+  margin: 20px 0 ;
+}
+.CourseSignUp__alert button::before {
+  background-color: var(--body_background);
+}
+.CourseSignUp__alert button:hover {
+  color: var(--body_color);
+}
+.close {
+  position: absolute;
+  right: 22px;
+  top: 22px;
+  width: 32px;
+  height: 32px;
+  z-index: 40;
+  cursor: pointer;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 5px;
+  background-color:var(--body_color);
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+.close:hover:before, .close:hover:after {
+  scale: 1.1;
+}

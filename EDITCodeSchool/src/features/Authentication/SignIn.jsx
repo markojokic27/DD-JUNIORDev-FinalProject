@@ -11,7 +11,6 @@ function SignIn() {
 
   const signIn = (e) => {
     e.preventDefault();
-    console.log(emailIn, passwordIn);
     let user = users.find((user) => user.email === emailIn);
     if (user) {
       user = users.find(

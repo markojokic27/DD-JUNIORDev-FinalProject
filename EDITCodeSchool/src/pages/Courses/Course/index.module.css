@@ -93,6 +93,24 @@
   border: unset;
   background-color: var(--body_background);
 }
+.course__user{
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+  height: 42px;
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 10px;
+  color: var(--body_color);
+  border: unset;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #8f8f8f;
+}
 .course__mobileWrapper button:hover {
   color: var(--body_background);
 }

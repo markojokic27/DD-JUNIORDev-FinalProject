@@ -8,7 +8,7 @@ import OverlayLeft from "./OverlayLeft";
 import OverlayRight from "./OverlayRight";
 
 function Authentication() {
-  const { authenticationVisible, setAuthenticationVisible } = useContext(FormContext);
+  const { authenticationVisible, setAuthenticationVisible, courseSignUpVisible, setCourseSignUpVisible} = useContext(FormContext);
   const [isRightPanelActive, setRightPanelActive] = useState(false);
   const [isValid, setIsValid] = useState({
     email: false,
@@ -23,6 +23,9 @@ function Authentication() {
     setAuthenticationVisible(false);
     setIsValid({ email: false, password: false, name: false });
     setData({ name: "", email: "", password: "" });
+    if (courseSignUpVisible) {
+      setCourseSignUpVisible(false);
+    }
   }
   const handleSignUpClick = () => {
     setRightPanelActive(true);

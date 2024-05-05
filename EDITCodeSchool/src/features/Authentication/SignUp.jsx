@@ -5,6 +5,7 @@ import PasswordInput from "./Inputs/PasswordInput";
 import { useContext, useState } from "react";
 import axios from "axios";
 import { FormContext } from "../../context/formContext";
+//import bcrypt from "bcryptjs"; 
 function SignUp(props) {
   const {setUsers, users, setCurrentUser, setAuthenticationVisible}=useContext(FormContext)
   const[message, setMessage] = useState("")
@@ -19,8 +20,7 @@ function SignUp(props) {
         }, 3000)
         return
       }
-
-      setMessage("Uspješno ste se registrirali")
+      //props.setData({...props.data, password: bcrypt.hashSync(props.data.password, 10)})
       axios
         .post("http://localhost:3001/users", props.data, {
         headers: {

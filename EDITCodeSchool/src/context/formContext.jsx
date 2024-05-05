@@ -10,7 +10,9 @@ export const FormProvider = ({ children }) => {
   const [mentors, setMentors] = useState([]);
   const [organisations, setOrganisations] = useState([]);
   const [authenticationVisible, setAuthenticationVisible] = useState(false);
+  const [courseSignUpVisible, setCourseSignUpVisible] = useState(false);
   const [users, setUsers] = useState([]);
+  const [selectedCourse, setSelectedCourse] = useState({});
   const [currentUser, setCurrentUser] = useState({
     name: "",
     email: "",
@@ -35,6 +37,10 @@ export const FormProvider = ({ children }) => {
     setUsers,
     currentUser,
     setCurrentUser,
+    selectedCourse,
+    setSelectedCourse,
+    courseSignUpVisible,
+    setCourseSignUpVisible,
   };
 
   return (
