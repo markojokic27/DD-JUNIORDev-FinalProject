@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "EDIT CodeSchool",
-      "date": "1.7.2024",
+      "date": "2024-07-01",
       "mentors": [
         "1"
       ],
@@ -21,7 +21,7 @@
     {
       "id": "4",
       "name": "CyberSec Akademija",
-      "date": "26.10.2024",
+      "date": "2024-10-26",
       "mentors": [
         "2"
       ],
@@ -41,7 +41,7 @@
     {
       "id": "2",
       "name": "EDIT JUNIOR Dev React",
-      "date": "16.8.2024",
+      "date": "2024-08-30",
       "mentors": [
         "2",
         "3"
@@ -61,7 +61,7 @@
     {
       "id": "3",
       "name": "JUNIOR Dev Express.js",
-      "date": "21.1.2025",
+      "date": "2025-07-12",
       "mentors": [
         "2"
       ],
@@ -75,6 +75,42 @@
       "organisations": [
         "1"
       ]
+    },
+    {
+      "id": "0abc",
+      "name": "Novaa",
+      "date": "2024-07-12",
+      "mentors": [
+        "1"
+      ],
+      "description": "Naucit cemo puno toga",
+      "applications": 2,
+      "participants": [
+        "admin@gmail.com"
+      ],
+      "organisations": [
+        "1"
+      ],
+      "level": "Senior",
+      "theme": "PHP"
+    },
+    {
+      "id": "acda",
+      "name": "aaaaaaaaaaaaaa",
+      "date": "2024-05-11",
+      "mentors": [
+        "1",
+        "2"
+      ],
+      "description": "bbbbBBBdddd",
+      "application": 0,
+      "participants": [],
+      "organisations": [
+        "2",
+        "3"
+      ],
+      "level": "Junior",
+      "theme": "express"
     }
   ],
   "mentors": [
@@ -125,30 +161,34 @@
   ],
   "levels": [
     {
-      "id": "junior",
-      "ime": "Junior"
+      "id": "Junior",
+      "name": "Junior"
     },
     {
-      "id": "mid",
-      "ime": "Mid"
+      "id": "Mid",
+      "name": "Mid"
     },
     {
-      "id": "senior",
-      "ime": "Senior"
+      "id": "Senior",
+      "name": "Senior"
     }
   ],
   "themes": [
     {
       "id": "react",
-      "ime": "React"
+      "name": "React"
     },
     {
       "id": "express",
-      "ime": "Express"
+      "name": "Express"
     },
     {
-      "id": "next_js",
-      "ime": "Next.js"
+      "id": "Cybersecurity",
+      "name": "Cybersecurity"
+    },
+    {
+      "id": "PHP",
+      "name": "PHP"
     }
   ],
   "users": [
@@ -156,7 +196,7 @@
       "id": "1",
       "name": "admin",
       "email": "admin@gmail.com",
-      "password": "admin1234"
+      "password": "admin1111"
     },
     {
       "id": "2027",

@@ -6,11 +6,16 @@ import Filters from "./Filters/Filters";
 import Loader from "./Filters/Loader";
 
 function Courses() {
-  const { setFilteredCourses, filteredCourses, courses } =
+  const { setFilteredCourses, filteredCourses, courses, currentUser, setCourseCreateVisible } =
     useContext(FormContext);
   const [selectedLevels, setSelectedLevels] = useState([]);
   const [selectedThemes, setSelectedThemes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const isCurrentUserAdmin = currentUser.email === "admin@gmail.com";
+
+  const addCourse = () => {
+    setCourseCreateVisible(true);
+  }
 
   useEffect(() => {
     if (courses.length > 0) {
@@ -45,6 +50,9 @@ function Courses() {
       <h1>Radionice</h1>
       <div className={classes.courses__wrapper}>
         <div className={classes.courses__leftContainer}>
+          {isCurrentUserAdmin && (
+            <button className={classes.courses__buttonAdd} onClick={addCourse}>DODAJ RADIONICU</button>
+          )}{" "}
           <Filters
             selectedLevels={selectedLevels}
             setSelectedLevels={setSelectedLevels}
@@ -58,7 +66,13 @@ function Courses() {
               <Loader />
             </div>
           ) : filteredCourses.length > 0 ? (
-            filteredCourses.map((c, index) => <Course key={index} course={c} />)
+            filteredCourses.map((c, index) => (
+              <Course
+                key={index}
+                course={c}
+                isCurrentUserAdmin={isCurrentUserAdmin}
+              />
+            ))
           ) : (
             <div className={classes.courses__notFound}>
               <h2>Trenutno takve radionice nisu organizirane</h2>

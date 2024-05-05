@@ -13,11 +13,14 @@ export const FormProvider = ({ children }) => {
   const [courseSignUpVisible, setCourseSignUpVisible] = useState(false);
   const [users, setUsers] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState({});
+  const [courseEditVisible, setCourseEditVisible] = useState(false);
+  const [courseCreateVisible, setCourseCreateVisible] = useState(true);
   const [currentUser, setCurrentUser] = useState({
     name: "",
     email: "",
     password: "",
   });
+
   const contextValue = {
     courses,
     setCourses,
@@ -41,6 +44,10 @@ export const FormProvider = ({ children }) => {
     setSelectedCourse,
     courseSignUpVisible,
     setCourseSignUpVisible,
+    courseEditVisible,
+    setCourseEditVisible,
+    courseCreateVisible,
+    setCourseCreateVisible,
   };
 
   return (

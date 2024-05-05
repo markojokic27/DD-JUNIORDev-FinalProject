@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import classes from "./index.module.css";
 import { FormContext } from "../../context/formContext";
 import axios from "axios";
+import CloseButton from "../CloseButton/CloseButton";
 
 function CourseSignUp() {
   const [alert, setAlert] = useState(false);
@@ -53,9 +54,6 @@ function CourseSignUp() {
     setCourseSignUpVisible(false);
 
   }
-  const close = () => {
-    setCourseSignUpVisible(false);
-  }
   return courseSignUpVisible ? (
     <div className={classes.CourseSignUp__blur}>
       {authenticationVisible || alert ? null : (
@@ -71,7 +69,7 @@ function CourseSignUp() {
 
             <button type="submit">Prijava</button>
           </form>
-          <a href="#" className={classes.close} onClick={close}></a>
+          <CloseButton closing={setCourseSignUpVisible} />
         </div>
       )}
       {alert ? 

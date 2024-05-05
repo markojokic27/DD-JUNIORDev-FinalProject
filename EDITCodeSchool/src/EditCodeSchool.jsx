@@ -11,23 +11,30 @@ import axios from 'axios'
 import Footer from './components/Footer/Footer'
 import Authentication from './features/Authentication/Authentication'
 import CourseSignUp from './features/CourseSignUp/CourseSignUp'
+import CourseEdit from './features/CourseEdit/CourseEdit'
+import CourseCreate from './features/CourseCreate/CourseCreate'
 function EditCodeSchool() {
-  const {setMentors,setOrganisations,setCourses, setUsers } = useContext(FormContext);
+  const {setMentors,setOrganisations,setCourses, setUsers, setLevels, setThemes } = useContext(FormContext);
   useEffect(() => {
     Promise.all([
       axios.get("http://localhost:3001/mentors/"),
       axios.get("http://localhost:3001/organisations/"),
       axios.get("http://localhost:3001/courses/"),
       axios.get("http://localhost:3001/users/"),
+      axios.get("http://localhost:3001/levels/"),
+      axios.get("http://localhost:3001/themes/"),
+
     ])
-      .then(([resMentors, resOrganisations,resCourses, resUsers]) => {
+      .then(([resMentors, resOrganisations,resCourses, resUsers,resLevels, resThemes]) => {
         setMentors(resMentors.data);
         setOrganisations(resOrganisations.data);
         setCourses(resCourses.data);
         setUsers(resUsers.data);
+        setLevels(resLevels.data);
+        setThemes(resThemes.data);
       })
       .catch((err) => console.log(err.message));
-  }, [setMentors, setOrganisations, setCourses, setUsers]);
+  }, [setMentors, setOrganisations, setCourses, setUsers, setLevels, setThemes]);
   return (
     <>
       <Header />
@@ -41,6 +48,8 @@ function EditCodeSchool() {
 
       <Authentication/>
       <CourseSignUp/>
+      <CourseEdit/>
+      <CourseCreate/>
 
     </>
   )
