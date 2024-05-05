@@ -13,6 +13,7 @@ import Authentication from './features/Authentication/Authentication'
 import CourseSignUp from './features/CourseSignUp/CourseSignUp'
 import CourseEdit from './features/CourseEdit/CourseEdit'
 import CourseCreate from './features/CourseCreate/CourseCreate'
+import MentorCourses from './pages/MentorsCourses/MentorsCourses'
 function EditCodeSchool() {
   const {setMentors,setOrganisations,setCourses, setUsers, setLevels, setThemes } = useContext(FormContext);
   useEffect(() => {
@@ -42,6 +43,7 @@ function EditCodeSchool() {
         <Route path="/" element={<Home/>} />
         <Route path="/courses" element={<Courses/>} />
         <Route path="/mentors" element={<Mentors/>} />
+        <Route path="/mentors/:mentorId" element={<MentorCourses/>} />
         <Route path="*" element={<NotFound/>} />       
       </Routes>
       <Footer />

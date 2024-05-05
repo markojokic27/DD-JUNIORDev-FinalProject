@@ -1,0 +1,19 @@
+.mentorCourses{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.mentorCourses__courses{
+  width: clamp(300px, 100%, 80%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mentorCourses h1{
+  color: var(--body_color);
+  margin: 42px 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
