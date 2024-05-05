@@ -8,6 +8,7 @@ export const FormProvider = ({ children }) => {
   const [themes, setThemes] = useState([]);
   const [levels, setLevels] = useState([]);
   const [mentors, setMentors] = useState([]);
+  const [filteredMentors, setFilteredMentors] = useState([]); 
   const [organisations, setOrganisations] = useState([]);
   const [authenticationVisible, setAuthenticationVisible] = useState(false);
   const [courseSignUpVisible, setCourseSignUpVisible] = useState(false);
@@ -32,6 +33,8 @@ export const FormProvider = ({ children }) => {
     setLevels,
     mentors,
     setMentors,
+    filteredMentors,
+    setFilteredMentors,
     organisations,
     setOrganisations,
     authenticationVisible,
