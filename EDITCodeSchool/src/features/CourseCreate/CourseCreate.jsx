@@ -41,12 +41,8 @@ function CourseCreate() {
   });
   const [message, setMessage] = useState("");
   const save = () => {
-    console.log(data);
     const isValidForm = Object.values(isValid).every((value) => value);
-    
     if (isValidForm) {
-      console.log("DA");
-
       axios
         .post("http://localhost:3001/courses", data, {
           headers: {
@@ -59,14 +55,12 @@ function CourseCreate() {
         setMessage("");
         setCourseCreateVisible(false);
       }, 1200);
-    } else {
-      console.log("NE");
-
+    } 
+    else {
       setMessage("Niste unijeli sve podatke");
       setTimeout(() => {
         setMessage("");
       }, 1200);
-      console.log("NEAAA");
     }
   };
   return courseCreateVisible ? (

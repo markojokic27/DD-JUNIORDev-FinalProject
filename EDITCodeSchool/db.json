@@ -78,18 +78,18 @@
     },
     {
       "id": "0abc",
-      "name": "Novaa",
+      "name": "Novaa znanja",
       "date": "2024-07-12",
       "mentors": [
         "1"
       ],
-      "description": "Naucit cemo puno toga",
+      "description": "Naucit cemo puno toga!!!",
       "applications": 2,
       "participants": [
         "admin@gmail.com"
       ],
       "organisations": [
-        "1"
+        "3"
       ],
       "level": "Senior",
       "theme": "PHP"

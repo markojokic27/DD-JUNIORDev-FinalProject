@@ -14,7 +14,7 @@ export const FormProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState({});
   const [courseEditVisible, setCourseEditVisible] = useState(false);
-  const [courseCreateVisible, setCourseCreateVisible] = useState(true);
+  const [courseCreateVisible, setCourseCreateVisible] = useState(false);
   const [currentUser, setCurrentUser] = useState({
     name: "",
     email: "",

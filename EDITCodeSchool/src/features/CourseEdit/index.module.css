@@ -8,13 +8,13 @@
   justify-content: center;
   background-color: transparent;
   height: 100%;
-  z-index: 20;
+  z-index: 50;
   backdrop-filter: blur(5px);
+
 }
 .courseEdit{
   position: relative;
   width: clamp(300px, 80%, 768px);
-  height: 480px;
   background: var(--body_background);
   border-radius: 30px;
   overflow: hidden;
@@ -22,4 +22,63 @@
               0 10px 10px rgba(0, 0, 0, 0.22);  
   z-index: 25;
   padding: 30px;
+  height: fit-content;
+
+  
+}
+
+.courseEdit__leftContainer{
+  width: 60%;
+  margin-right: 30px;
+  height: fit-content;
+}
+.courseEdit h2{
+  margin-bottom: 30px;
+}
+.courseEdit button{
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.courseEdit button::before{
+  background-color: var(--body_background);
+}
+.courseEdit button:hover{
+  color: var(--body_color);
+}
+.courseEdit__wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+.courseEdit__rightContainer{
+  width: 40%;
+  height: fit-content;
+}
+.courseEdit__buttonWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 120px;
+}
+@media screen and (max-width: 768px){
+  .courseEdit{
+    padding: 10px;
+
+  }
+  .courseEdit__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 0;
+  }
+  .courseEdit__leftContainer{
+    width: 100%;
+    margin-right: 0;
+  }
+  .courseEdit__rightContainer{
+    width: 100%;
+  }
+  .courseEdit__blur{
+    padding-top: 20px;
+  }
+
 }
