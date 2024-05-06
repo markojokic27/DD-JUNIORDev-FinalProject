@@ -14,7 +14,7 @@ input{
 }
 .textArea{
   width: 100%;
-  height: 60px;
+  height: 42px;
   resize: none;
   background: #f5efaf;
   padding: 12px 15px;
@@ -26,7 +26,7 @@ input{
   font-family: roboto, sans-serif;
 }
 .containerInputArea{
-  height: 150px;
+  height: 70px;
 }
 .labelWrapper{
   width: 100%;

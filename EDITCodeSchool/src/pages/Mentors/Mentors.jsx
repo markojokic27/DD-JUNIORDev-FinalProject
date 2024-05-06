@@ -14,6 +14,7 @@ function Mentors() {
     currentUser,
     courses,
     organisations,
+    setMentorCreateVisible
   } = useContext(FormContext);
   const [selectedOrganisations, setSelectedOrganisations] = useState([]);
   const [selectedThemes, setSelectedThemes] = useState([]);
@@ -21,7 +22,7 @@ function Mentors() {
   const isCurrentUserAdmin = currentUser.email === "admin@gmail.com";
 
   const addMentor = () => {
-    //setMentorCreateVisible(true);
+    setMentorCreateVisible(true);
   };
 
   useEffect(() => {

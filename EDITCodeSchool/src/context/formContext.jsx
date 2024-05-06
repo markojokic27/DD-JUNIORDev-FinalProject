@@ -16,6 +16,9 @@ export const FormProvider = ({ children }) => {
   const [selectedCourse, setSelectedCourse] = useState({});
   const [courseEditVisible, setCourseEditVisible] = useState(false);
   const [courseCreateVisible, setCourseCreateVisible] = useState(false);
+  const [selectedMentor, setSelectedMentor] = useState({});
+  const [mentorCreateVisible, setMentorCreateVisible] = useState(false);  
+  const [mentorEditVisible, setMentorEditVisible] = useState(false);
   const [currentUser, setCurrentUser] = useState({
     name: "",
     email: "",
@@ -51,6 +54,12 @@ export const FormProvider = ({ children }) => {
     setCourseEditVisible,
     courseCreateVisible,
     setCourseCreateVisible,
+    selectedMentor,
+    setSelectedMentor,
+    mentorCreateVisible,
+    setMentorCreateVisible,
+    mentorEditVisible,
+    setMentorEditVisible,
   };
 
   return (

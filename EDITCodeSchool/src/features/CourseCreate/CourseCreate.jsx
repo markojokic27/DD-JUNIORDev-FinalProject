@@ -8,7 +8,7 @@ import DescriptionInput from "./Inputs/DescriptionInput";
 import SelectInput from "./Inputs/SelectInputs";
 import SelectOneInput from "./Inputs/SelectOneInput";
 import axios from "axios";
-//import InputURL from "./Inputs/InputURL";
+import InputURL from "./Inputs/InputURL";
 //import AddPhoto from "./Inputs/AddPhoto";
 
 function CourseCreate() {
@@ -19,6 +19,7 @@ function CourseCreate() {
     organisations,
     levels,
     themes,
+    setCourses
   } = useContext(FormContext);
   const [data, setData] = useState({
     name: "",
@@ -53,6 +54,14 @@ function CourseCreate() {
           },
         })
         .catch((err) => console.log(err.message));
+      setCourses((prevCourses) => {
+          return prevCourses.map((course) => {
+            if (course.id === data.id) {
+              return data;
+            }
+            return course;
+          });
+        });
       setMessage("Radionica je uspješno dodana");
       setTimeout(() => {
         setMessage("");
@@ -90,14 +99,14 @@ function CourseCreate() {
               isValid={isValid}
               setIsValid={setIsValid}
             />
-            {/*
+            
             <InputURL 
               data={data}
               setData={setData}
               isValid={isValid}
               setIsValid={setIsValid}
             />
-            */}
+            
             {/*<AddPhoto/>*/}
           </div>
           <div className={classes.courseCreate__rightContainer}>

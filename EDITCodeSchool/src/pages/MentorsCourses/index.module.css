@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  background-color: var(--body_background);
 }
 .mentorCourses__courses{
   width: clamp(300px, 100%, 80%);
@@ -11,9 +12,17 @@
   flex-direction: column;
   align-items: center;
 }
+.mentorCourses__course{
+  width: 100%;
+}
 .mentorCourses h1{
   color: var(--body_color);
   margin: 42px 0;
   font-family: "Roboto", sans-serif;
   font-weight: 600;
+}
+@media screen and (max-width: 850px) {
+  .mentorCourses h1{
+    font-size: 32px;
+  }
 }

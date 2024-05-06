@@ -14,6 +14,8 @@ import CourseSignUp from './features/CourseSignUp/CourseSignUp'
 import CourseEdit from './features/CourseEdit/CourseEdit'
 import CourseCreate from './features/CourseCreate/CourseCreate'
 import MentorCourses from './pages/MentorsCourses/MentorsCourses'
+import MentorCreate from './features/MentorCreate/MentorCreate'
+import MentorEdit from './features/MentorEdit/MentorEdit'
 function EditCodeSchool() {
   const {setMentors,setOrganisations,setCourses, setUsers, setLevels, setThemes } = useContext(FormContext);
   useEffect(() => {
@@ -52,7 +54,8 @@ function EditCodeSchool() {
       <CourseSignUp/>
       <CourseEdit/>
       <CourseCreate/>
-
+      <MentorCreate/>
+      <MentorEdit/>
     </>
   )
 }

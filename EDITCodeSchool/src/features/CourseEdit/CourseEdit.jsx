@@ -8,7 +8,7 @@ import DescriptionInput from "./Inputs/DescriptionInput";
 import SelectInput from "./Inputs/SelectInputs";
 import SelectOneInput from "./Inputs/SelectOneInput";
 import axios from "axios";
-//import InputURL from "./Inputs/InputURL";
+import InputURL from "./Inputs/InputURL";
 function CourseEdit() {
   const {
     courseEditVisible,
@@ -18,7 +18,8 @@ function CourseEdit() {
     levels,
     themes,
     selectedCourse,
-    setSelectedCourse
+    setSelectedCourse,
+    setCourses
   } = useContext(FormContext);
   const [isValid, setIsValid] = useState({
     name: true,
@@ -41,6 +42,14 @@ function CourseEdit() {
         },
       })
       .catch((err) => console.log(err.message));
+      setCourses((prevCourses) => {
+        return prevCourses.map((course) => {
+          if (course.id === selectedCourse.id) {
+            return selectedCourse;
+          }
+          return course;
+        });
+      });
       setMessage("Radionica je promijenjena");
       setTimeout(() => {
         setMessage("");
@@ -82,13 +91,13 @@ function CourseEdit() {
               setSelectedCourse={setSelectedCourse}
 
             />
-            {/*
+            
             <InputURL
               isValid={isValid}
               setIsValid={setIsValid}
               selectedCourse={selectedCourse}
               setSelectedCourse={setSelectedCourse}
-            />*}
+            />
             {/*<AddPhoto/>*/}
           </div>
           <div className={classes.courseEdit__rightContainer}>

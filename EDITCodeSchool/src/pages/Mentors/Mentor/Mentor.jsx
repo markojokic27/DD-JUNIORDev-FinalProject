@@ -4,12 +4,17 @@ import classes from "./index.module.css";
 import { FormContext } from "../../../context/formContext";
 import { Link } from "react-router-dom";
 
-function Mentor({ mentor, /*isCurrentUserAdmin */}) {
+function Mentor({ mentor}) {
   const {
     organisations,
-    currentUser
+    currentUser,
+    setMentorEditVisible,
+    setSelectedMentor,
   } = useContext(FormContext);
-
+  const edit = () => {
+    setSelectedMentor(mentor);
+    setMentorEditVisible(true);
+  };
   let currentUserAdmin= currentUser.email === "admin@gmail.com";
   const organizationName = organisations.find((org) => org.id === mentor.organization)?.name;
   return (
@@ -20,7 +25,7 @@ function Mentor({ mentor, /*isCurrentUserAdmin */}) {
       <p>Organizacija: <b>{organizationName}</b></p>
       <Link to={`/mentors/${mentor.id}`}><button>RADIONICE</button></Link>
         
-      {currentUserAdmin && <button>UREDI</button>}
+      {currentUserAdmin && <button onClick={edit}>UREDI</button>}
     </div>
   );
 }

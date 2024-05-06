@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import classes from "./index.module.css";
 
-const InputURL = ({ data, setData, isValid, setIsValid }) => {
+const InputURL = ({ selectedCourse, setSelectedCourse, isValid, setIsValid }) => {
   const [isValidURL, setValidURL] = useState(true);
 
   useEffect(() => {
-    if (data && data.image) {
-      const validation = isValidImageUrl(data.image);
+    if (selectedCourse && selectedCourse.image) {
+      const validation = isValidImageUrl(selectedCourse.image);
       setValidURL(validation);
       setIsValid({ ...isValid, image: validation });
     }
-  }, [data, setIsValid]);
+  }, [selectedCourse, setIsValid]);
 
   const handleURLChange = (e) => {
-    if (setData) {
-      setData({ ...data, image: e.target.value });
+    if (setSelectedCourse) {
+      setSelectedCourse({ ...selectedCourse, image: e.target.value });
     }
   };
 
@@ -22,7 +22,7 @@ const InputURL = ({ data, setData, isValid, setIsValid }) => {
     event.preventDefault();
     const text = event.clipboardData.getData("text");
     if (text) {
-      setData({ ...data, image: text });
+      setSelectedCourse({ ...selectedCourse, image: text });
     }
   };
 
@@ -35,13 +35,13 @@ const InputURL = ({ data, setData, isValid, setIsValid }) => {
     <div className={classes.containerInput}>
       <input
         type="url"
-        value={data ? data.image : ""}
+        value={selectedCourse ? selectedCourse.image : ""}
         onChange={handleURLChange}
         onPaste={handlePaste}
         className={classes.input}
         placeholder="URL slike"
       />
-      {!isValidURL && data && data.image && (
+      {!isValidURL && selectedCourse && selectedCourse.image && (
         <span className={classes.warning}>Neispravan URL</span>
       )}
     </div>

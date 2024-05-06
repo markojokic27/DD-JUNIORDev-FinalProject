@@ -1,93 +1,88 @@
 import { useContext, useState } from "react";
 import classes from "./index.module.css";
 import { FormContext } from "../../context/formContext";
-import axios from "axios";
-import NameInput from "../CourseCreate/Inputs/NameInput";
-import BiographyInput from "./Inputs/BiographyInput";
-import SelectOneInput from "./Inputs/SelectOneInput";
 import CloseButton from "../CloseButton/CloseButton";
+import NameInput from "./Inputs/NameInput";
+import SelectOneInput from "./Inputs/SelectOneInput";
+import axios from "axios";
 import InputURL from "./Inputs/InputURL";
-
-function MentorCreate() {
+import BiographyInput from "./Inputs/BiographyInput";
+function MentorEdit() {
   const {
-    mentorCreateVisible,
-    setMentorCreateVisible,
+    mentorEditVisible,
+    setMentorEditVisible,
     organisations,
-    setMentors,
+    selectedMentor,
+    setSelectedMentor,
+    setMentors
   } = useContext(FormContext);
-  const [data, setData] = useState({
-    name: "",
-    biography: "",
-    organization: "",
-    image: "",
-  });
   const [isValid, setIsValid] = useState({
-    name: false,
-    biography: false,
-    organization: false,
-    image: false,
+    name: true,
+    biography: true,
+    organization: true,
+    image: true,
   });
   const [message, setMessage] = useState("");
   const save = () => {
     const isValidForm = Object.values(isValid).every((value) => value);
+    
     if (isValidForm) {
-      axios
-        .post("http://localhost:3001/mentors", data, {
-          headers: {
-            "content-type": "application/json",
-          },
-        })
-        .catch((err) => console.log(err.message));
+      axios.put(`http://localhost:3001/mentors/${selectedMentor.id}`, selectedMentor, {
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+      .catch((err) => console.log(err.message));
       setMentors((prevMentors) => {
         return prevMentors.map((mentor) => {
-          if (mentor.id === data.id) {
-            return data;
+          if (mentor.id === selectedMentor.id) {
+            return selectedMentor;
           }
           return mentor;
         });
       });
-      setMessage("Predavač je uspješno dodan");
+      setMessage("Predavač je promjenjen");
       setTimeout(() => {
         setMessage("");
-        setMentorCreateVisible(false);
+        setMentorEditVisible(false);
       }, 1200);
-    } else {
+    } 
+    else {
       setMessage("Niste unijeli sve podatke");
       setTimeout(() => {
         setMessage("");
       }, 1200);
+
+      
     }
-    
   };
-
-
-  return mentorCreateVisible ? (
+  return mentorEditVisible ? (
     <div className={classes.mentorCreate__blur}>
       <div className={classes.mentorCreate}>
-        <h2>Novi predavač</h2>
+        <h2>Uredi predavača</h2>
         <div className={classes.mentorCreate__wrapper}>
           <NameInput
-            data={data}
-            setData={setData}
+            selectedMentor={selectedMentor}
+            setSelectedMentor={setSelectedMentor}
             isValid={isValid}
             setIsValid={setIsValid}
           />
           <BiographyInput
-            data={data}
-            setData={setData}
+            selectedMentor={selectedMentor}
+            setSelectedMentor={setSelectedMentor}
             isValid={isValid}
             setIsValid={setIsValid}
           />
           <InputURL
-            data={data}
-            setData={setData}
+            selectedMentor={selectedMentor}
+            setSelectedMentor={setSelectedMentor}
             isValid={isValid}
             setIsValid={setIsValid}
           />
 
           <SelectOneInput
-            data={data}
-            setData={setData}
+            selectedMentor={selectedMentor}
+            setSelectedMentor={setSelectedMentor}
             isValid={isValid}
             setIsValid={setIsValid}
             options={organisations}
@@ -99,10 +94,10 @@ function MentorCreate() {
           <button onClick={save}>Spremi</button>
           <span>{message}</span>
         </div>
-        <CloseButton closing={setMentorCreateVisible} />
+        <CloseButton closing={setMentorEditVisible} />
       </div>
     </div>
   ) : null;
 }
 
-export default MentorCreate;
+export default MentorEdit;

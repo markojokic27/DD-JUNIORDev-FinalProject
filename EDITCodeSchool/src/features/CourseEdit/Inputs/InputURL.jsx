@@ -2,25 +2,47 @@ import { useEffect, useState } from "react";
 import classes from "./index.module.css";
 
 const InputURL = ({ selectedCourse, setSelectedCourse, isValid, setIsValid }) => {
-  const [isValidURL, setValidURL] = useState(false);
+  const [isValidURL, setValidURL] = useState(true);
 
   useEffect(() => {
-    const validation = selectedCourse.URL.length > 1;
-    setValidURL(validation);
-    if (validation !== isValid.URL) setIsValid({ ...isValid, URL: validation });
-  }, [selectedCourse.URL, isValid.URL, setIsValid]);
+    if (selectedCourse && selectedCourse.image) {
+      const validation = isValidImageUrl(selectedCourse.image);
+      setValidURL(validation);
+      setIsValid({ ...isValid, image: validation });
+    }
+  }, [selectedCourse, setIsValid]);
+
+  const handleURLChange = (e) => {
+    if (setSelectedCourse) {
+      setSelectedCourse({ ...selectedCourse, image: e.target.value });
+    }
+  };
+
+  const handlePaste = (event) => {
+    event.preventDefault();
+    const text = event.clipboardData.getData("text");
+    if (text) {
+      setSelectedCourse({ ...selectedCourse, image: text });
+    }
+  };
+
+  const isValidImageUrl = (url) => {
+    const urlRegex = /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,})(\/\S*)?$/i;
+    return urlRegex.test(url);
+  };
 
   return (
     <div className={classes.containerInput}>
       <input
-        type="URL"
-        value={selectedCourse.URL}
-        onChange={(e) => setSelectedCourse({ ...selectedCourse, image: e.target.value })}
+        type="url"
+        value={selectedCourse ? selectedCourse.image : ""}
+        onChange={handleURLChange}
+        onPaste={handlePaste}
         className={classes.input}
         placeholder="URL slike"
       />
-      {!isValidURL && selectedCourse.URL.length > 0 && (
-        <span className={classes.warning}>Url neispravan</span>
+      {!isValidURL && selectedCourse && selectedCourse.image && (
+        <span className={classes.warning}>Neispravan URL</span>
       )}
     </div>
   );

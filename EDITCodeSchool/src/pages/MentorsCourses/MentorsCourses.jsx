@@ -22,7 +22,7 @@ function MentorCourses() {
   console.log(mentorCourses);
   return (
     <div className={classes.mentorCourses}>
-      <h1>Radionice koji predaje {mentor.name}</h1>
+      <h1>Radionice koje predaje {mentor.name}</h1>
       <div className={classes.mentorCourses__courses}>
         {mentorCourses.map((course) => (
           <div key={course.id} className={classes.mentorCourses__course}>

@@ -28,6 +28,7 @@ input{
 .containerInputArea{
   height: 70px;
   margin-bottom: 10px;
+  width: 100%;
 }
 .labelWrapper{
   width: 100%;

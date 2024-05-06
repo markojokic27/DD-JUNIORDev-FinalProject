@@ -36,24 +36,17 @@ function CourseSignUp() {
         applications: selectedCourse.applications + 1,
         participants: [...selectedCourse.participants, currentUser.email],
       })
-      .then((response) => {
-        console.log("Podaci uspješno ažurirani na serveru:", response.data);
-      })
       .catch((error) => {
-        console.error(
-          "Došlo je do pogreške prilikom ažuriranja podataka na serveru:",
-          error
-        );
+        console.error(error);
       });
 
     setCourses(updatedCourses);
   };
-  
+
   const closeAlert = () => {
     setAlert(false);
     setCourseSignUpVisible(false);
-
-  }
+  };
   return courseSignUpVisible ? (
     <div className={classes.CourseSignUp__blur}>
       {authenticationVisible || alert ? null : (
@@ -61,7 +54,7 @@ function CourseSignUp() {
           <form onSubmit={signUp}>
             <h2>Prijavi se za {selectedCourse.name}</h2>
             <p>Puno ime:</p>
-            <input type="text" required/>
+            <input type="text" required />
             <p>Email:</p>
             <span>{currentUser.email}</span>
             <p>Razlog prijave:</p>
@@ -72,13 +65,13 @@ function CourseSignUp() {
           <CloseButton closing={setCourseSignUpVisible} />
         </div>
       )}
-      {alert ? 
+      {alert ? (
         <div className={classes.CourseSignUp__alert}>
           <h2>Hvala na prijavi!</h2>
           <p>Preko mail-a će te dobiti nove obavjesti o radionici.</p>
           <button onClick={closeAlert}>Zatvori</button>
         </div>
-       : null}
+      ) : null}
     </div>
   ) : null;
 }
